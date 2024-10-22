@@ -7,9 +7,9 @@ export default function AddCar({ addCar }) {
         model: '',
         color: '',
         fuel: '',
-        year: '',
+        modelYear: '',
         price: ''
-    });
+    }, []);
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -43,8 +43,7 @@ export default function AddCar({ addCar }) {
                         autoFocus
                         required
                         margin="dense"
-                        id="brand"
-                        name="Brand"
+                        name="brand"
                         label="Brand"
                         type="text"
                         fullWidth
@@ -54,8 +53,7 @@ export default function AddCar({ addCar }) {
                     <TextField
                         required
                         margin="dense"
-                        id="model"
-                        name="Model"
+                        name="model"
                         label="Model"
                         type="text"
                         fullWidth
@@ -65,8 +63,7 @@ export default function AddCar({ addCar }) {
                     <TextField
                         required
                         margin="dense"
-                        id="color"
-                        name="Color"
+                        name="color"
                         label="Color"
                         type="text"
                         fullWidth
@@ -76,8 +73,7 @@ export default function AddCar({ addCar }) {
                     <TextField
                         required
                         margin="dense"
-                        id="fuel"
-                        name="Fuel"
+                        name="fuel"
                         label="Fuel"
                         type="text"
                         fullWidth
@@ -87,7 +83,6 @@ export default function AddCar({ addCar }) {
                     <TextField
                         required
                         margin="dense"
-                        id="modelYear"
                         name="modelYear"
                         label="Year"
                         type="text"
@@ -98,8 +93,7 @@ export default function AddCar({ addCar }) {
                     <TextField
                         required
                         margin="dense"
-                        id="price"
-                        name="Price"
+                        name="price"
                         label="Price"
                         type="text"
                         fullWidth
