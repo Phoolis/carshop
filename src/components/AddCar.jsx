@@ -10,6 +10,12 @@ import { useState } from "react";
 import CarDialogContent from "./CarDialogContent";
 
 export default function AddCar({ addCar }) {
+
+  const addMutation = useMutation({
+    mutationFn: addCar,
+    onSuccess: () => queryClient.invalidateQueries(["cars"]),
+  });
+
   const [car, setCar] = useState(
     {
       brand: "",
