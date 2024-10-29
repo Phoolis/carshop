@@ -1,27 +1,17 @@
 import {
   Dialog,
   DialogTitle,
-  DialogContent,
   DialogActions,
-  TextField,
   Button,
 } from "@mui/material";
 import { useState } from "react";
 import CarDialogContent from "./CarDialogContent";
 
-export default function AddCar({ addCar }) {
-  const [car, setCar] = useState(
-    {
-      brand: "",
-      model: "",
-      color: "",
-      fuel: "",
-      modelYear: "",
-      price: "",
-    },
-    []
-  );
+export default function UpdateCar({ updateCar, currentCar }) {
+  const [car, setCar] = useState(currentCar);
   const [open, setOpen] = useState(false);
+
+  const url = currentCar._links.self.href;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -37,13 +27,13 @@ export default function AddCar({ addCar }) {
 
   const handleSave = () => {
     console.log(car);
-    addCar(car);
+    updateCar(url, car);
     setOpen(false);
   };
 
   return (
     <>
-      <Button onClick={handleClickOpen}>Add car</Button>
+      <Button onClick={handleClickOpen}>Update car</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>New car</DialogTitle>
         <CarDialogContent car={car} handleChange={handleChange} />
