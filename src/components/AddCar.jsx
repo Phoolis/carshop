@@ -1,15 +1,11 @@
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-  Button,
-} from "@mui/material";
+import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 import { useState } from "react";
+import { addCar } from "../utils/api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CarDialogContent from "./CarDialogContent";
 
-export default function AddCar({ addCar }) {
+export default function AddCar() {
+  const queryClient = useQueryClient();
 
   const addMutation = useMutation({
     mutationFn: addCar,
@@ -42,8 +38,7 @@ export default function AddCar({ addCar }) {
   };
 
   const handleSave = () => {
-    console.log(car);
-    addCar(car);
+    addMutation.mutate(car);
     setOpen(false);
   };
 

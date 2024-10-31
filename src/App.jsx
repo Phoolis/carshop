@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import CarList from "./components/CarList";
 import Container from "@mui/material/Container";

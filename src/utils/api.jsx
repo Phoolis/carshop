@@ -41,6 +41,7 @@ const updateCar = async ({ url, car }) => {
     body: JSON.stringify(car),
   };
   const data = await fetch(url, options);
+  return data;
 };
 
 export { fetchCars, addCar, updateCar, deleteCar };
